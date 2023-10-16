@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+}
+.body{
+    height:100%;
+    margin-top: 0;
+}
+.cart-first{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+}
+.cart-first h2{
+    font-size: 35px;
+}

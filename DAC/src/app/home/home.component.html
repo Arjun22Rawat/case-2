@@ -1,0 +1,89 @@
+
+<body>
+<div class="img-area"></div>
+<div class="content">
+    <h1>Grab On</h1><br>
+    <p style="font-size: 20px;">CouponDuniya: The one-Stop Shopping Destination. </p>
+</div>
+<div>
+    
+</div>
+<h2 class="title">Featured Products</h2>
+<div class="shop-category">
+    <div class="item-img" *ngFor="let item of items" (click)="showDetails(item.itemId)">
+        <img src="data:image/jpg;base64,{{item.image}}"/>
+        <p>{{item.itemName}}</p>
+        <p>{{item.rating}}</p>
+        <button class="btn1" type="button">Buy Now</button>
+        <button class="btn2" type="button" (click)="addToCart(item.itemId)">Add to Cart</button>
+    </div>
+</div>
+
+<h2 class="title">Top Deals</h2>
+<div class="shop-category">
+    <div class="item-img" *ngFor="let deal of topDeals" (click)="showDetails(deal.itemId)">
+        <img src="data:image/jpg;base64,{{deal.image}}"/>
+        <p>{{deal.itemName}}</p>
+        <p>{{deal.rating}}</p>
+        <button class="btn1" type="button">Buy Now</button>
+        <button class="btn2" type="button" (click)="addToCart(deal.itemId)">Add to Cart</button>
+    </div>
+</div>
+
+<div class="section">
+    <div class="feature-1">
+        <img src="../../assets/premium.png" alt="">
+      <h2>Premium Quality</h2>
+        <p>For us every single step matters.</p>
+        <p> Our goal is to help you get best</p>
+    </div>
+    <div class="feature-2">
+        <img src="../../assets/best-price.png" alt="">
+        <h2>Best Deals</h2>
+        <p>Your favorite products made affordable for you. Hurry before the stock runs out</p>
+    </div>
+    <div class="feature-3">
+        <img src="../../assets/credit-card.png" alt="">
+        <h2>Secure Payments</h2>
+        <p>We’re Here To Give You Exceptional Value Whenever You Need It Most.</p>
+    </div>
+</div>
+<div class="footer">
+    <div class="share" >
+        <a href="https://www.facebook.com/" class="btn">Facebook</a>
+            <a href="https://twitter.com/" class="btn">X</a>
+            <a href="https://www.instagram.com/" class="btn">Instagram</a>
+            <a href="https://www.youtube.com/" class="btn">Youtube</a>
+            <a href="https://in.pinterest.com/" class="btn">Pinterest</a>
+            <a href="https://www.linkedin.com/" class="btn">linkedin</a>
+     
+    </div>
+    <br>
+    <div class="footer-section">
+        <h2>Help</h2>
+        <p>CIN : U51109KA2012PTC066107</p>
+
+        <p> Telephone: 044-45614700</p>
+    </div>
+    <div class="footer-section">
+        <h2>Registered Office Address</h2>
+        <p>Internet Private Limited,Tech Village</p>
+        
+        <p>Bengaluru, 560103,Karnataka, India</p>
+        
+    </div>
+    <div class="footer-section">
+        <h2>Links</h2>
+        
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <br>
+
+    <p class="link">copyright &copy; <span>www.D&C.com</span> | all rights reserved</p>
+</div>
+</body>

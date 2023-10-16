@@ -1,0 +1,26 @@
+<!-- <p>login works!</p> -->
+<body>
+    <img src="../../assets/growth.png" alt="Image Description">
+
+    <div class="container">
+
+        
+
+        <h2>Login Form</h2>
+        <form action="">
+            <div class="first">
+                <label>Email-Id:</label><br>
+                <input type="text" id="username" name="username" placeholder="Enter your emailId"
+                    [(ngModel)]="user.emailId" required>
+            </div>
+            <div class="second">
+                <label>Password:</label><br>
+                <input type="password" id="password" name="password" placeholder="Enter your password"
+                    [(ngModel)]="user.password" required>
+            </div>
+            <button type="submit" (click)="loginForm()">Login</button>
+            <h3>Want to create new account?<a routerLink="/register"> Register</a></h3>
+            <p style="font-size: x-small;">By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.</p>
+        </form>
+    </div>
+</body>

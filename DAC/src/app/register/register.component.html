@@ -1,0 +1,66 @@
+<body>
+    <img src="../../assets/MicrosoftTeams.png" alt="Image Description">
+
+    <div class="container">
+    <div>
+        <h2>Create an account!</h2>
+        <form action="">
+            <div class="first">
+                <label>Email Id:</label><br>
+                <input type="email" id="email" name="email" placeholder="Enter your email" [(ngModel)]="user.emailId"
+                    required>
+            </div>
+            <div class="second">
+                <label>Password:</label><br>
+                <input type="password" id="password" name="password" placeholder="Enter your password"
+                    [(ngModel)]="user.password" required>
+            </div>
+
+        </form>
+    </div>
+
+        <div *ngIf="isUserVerified; else elseBlockInDiv">
+
+            <form action="">
+                <div class="third">
+                    <label>Name:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" [(ngModel)]="customer.name"
+                        required>
+                </div>
+                <div class="fourth">
+                    <label>Contact:</label><br>
+                    <input type="text" id="contact" name="contact" placeholder="Enter your contact"
+                        [(ngModel)]="customer.contactNumber" required>
+                </div>
+                <div class="fifth">
+                    <label>Address:</label><br>
+                    <input type="text" id="address" name="address" placeholder="Enter your address"
+                        [(ngModel)]="customer.address" required>
+                </div>
+
+
+                <button type="submit" (click)="register()">Register</button>
+                <h3>Already have an accout?  <a routerLink="/login">Login</a></h3>
+            </form>
+        </div>
+
+        <ng-template #elseBlockInDiv>
+            
+                <div>
+                    <div *ngIf="codeInput">
+                        <input class="verifyBlock" type="text" required [(ngModel)]="verificationCode" placeholder="Enter verification code">
+                    </div>
+                    <div *ngIf="buttonForSendingCode; else elseBlock">
+                        <button class="send" type="submit" (click)="sendVerificationCode()">Send Code</button>
+                    </div>
+                    <ng-template #elseBlock>
+                        <div>
+                            <button class="verify" type="submit" (click)="verifyCode()">Verify Code</button>
+                        </div>
+                    </ng-template>
+                </div>
+            
+        </ng-template>
+
+    </div>
+</body>

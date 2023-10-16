@@ -1,0 +1,32 @@
+.about-us-container {
+    text-align: center;
+    padding: 80px;
+  }
+  
+  .about-us-banner {
+    background-color: #00a2e8;
+    color: #fff;
+    padding: 30px;
+  }
+  
+  .about-us-content {
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  ul {
+    list-style: disc;
+    margin-left: 20px;
+  }
+  
+  address {
+    font-style: normal;
+    font-size: 16px;
+  }
+  
+  /* Add more styles to match your project's branding */
+  

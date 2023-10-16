@@ -1,0 +1,45 @@
+body{
+    /* background-color: pink; */
+    background: linear-gradient(to top right,rgb(95, 95, 178),rgb(220, 132, 147));
+    /* margin-top: 70px; */
+}
+.container {
+    /* margin-top: 10px; */
+    /* border: 2px solid black; */
+    position: relative;
+    top: 20%;
+    height: 500px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:flex-start;
+    margin-left: 500px;
+    background-color: rgb(236, 238, 232);
+
+    border-radius: 15px;
+}
+.container h2{
+    color: rgb(88, 38, 118);
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 110px;
+    padding-bottom: 40px;
+}
+.container p{
+    margin-left: 70px;
+    font-size: 15px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: rgb(69, 28, 108);
+}
+.container button{
+    margin-top: 15px;
+    margin-left:150px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: rgb(68, 29, 103);
+    font-weight: bold;
+    background-color: whitesmoke;
+}

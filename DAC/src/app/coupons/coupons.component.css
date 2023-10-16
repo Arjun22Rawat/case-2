@@ -1,0 +1,28 @@
+body{
+    margin-top: 110px;
+    
+}
+.coupon-first{
+    display: flex;
+    align-items: center;
+    border: 4px solid gainsboro;
+    justify-content: space-between;
+    margin: 0 20px;
+    margin-bottom: 20px;
+}
+.coupon-first .content{
+    display: flex;
+    flex-direction: column;
+}
+.coupon-first img{
+    height: 110px;
+    width: 110px;
+    margin-left: 15px;
+}
+.coupon-first a{
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(244, 4, 156);
+}

@@ -1,0 +1,11 @@
+<!-- <p>cart works!</p> -->
+<body>
+    <div class="cart-first">
+        <h2>Items In Cart</h2>
+        <div *ngFor="let item of items">
+            <p>{{item.itemName}}</p>
+        </div>
+        <button (click)="calculateTotal()" >Cart Total</button>
+        <p *ngIf="visible">Total Price is : {{cart.cartTotal}}</p>
+    </div>
+</body>

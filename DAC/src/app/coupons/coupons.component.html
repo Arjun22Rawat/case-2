@@ -1,0 +1,15 @@
+<!-- <p>coupons works!</p> -->
+<body>
+    <div class="coupon-first"  *ngFor="let coupon of couponList">
+        <img src="../../assets/shop.jpg" alt="">
+        <div class="content">
+            <h2>Flat 10% off</h2>
+            <!-- <h3 class="para1">On min. purchase of Rs.1099</h3> -->
+            <h3 class="para2">Code: {{coupon}}</h3>
+            <h3 class="para3">Expiry: 30 Sept 2023</h3>
+            
+        </div>
+        <button type="submit" (click)="redeem(coupon)">Redeem Now ></button>
+    </div>
+    
+</body>
