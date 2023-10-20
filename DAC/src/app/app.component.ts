@@ -22,5 +22,8 @@ export class AppComponent {
   {
 
   }
+  navigateToCart(){
+    this.router.navigate(["/cart"]);
+  }
  
 }

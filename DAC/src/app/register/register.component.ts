@@ -4,6 +4,7 @@ import { User } from '../user';
 import { Cart } from '../cart';
 import { CustomerDetail } from '../customer-detail';
 import { Router } from '@angular/router';
+import { Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,12 @@ export class RegisterComponent
   user: User = new User();
   customer:CustomerDetail = new CustomerDetail();
   cartObj:Cart = new Cart();
+
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', Validators.required);
+  name=new FormControl('',Validators.required);
+contact=new FormControl('',Validators.required);
+totalAmount=new FormControl('',Validators.nullValidator);
 
   verificationCode: any;
   codeInput: any = false;
@@ -39,9 +46,37 @@ export class RegisterComponent
     this.router.navigate(["/login"]);
   }
 
+  checkUser() {
+
+    // Check if the user already exists
+
+    this.credeService.checkUsersExists(this.user.emailId).subscribe((userExists: boolean) => {
+
+      if (userExists) {
+
+        // User already exists, handle accordingly (e.g., show an error message)
+
+        alert('User already exists!');
+
+      } else {
+
+        // User does not exist, proceed with registration
+
+        this.sendVerificationCode();
+
+      }
+
+    });
+
+  }
+
+
+
+
   sendVerificationCode(){
     this.user.roles = "USER";
     this.credeService.register(this.user).subscribe();
+    
     this.codeInput = true;
     this.buttonForSendingCode = false;
   }

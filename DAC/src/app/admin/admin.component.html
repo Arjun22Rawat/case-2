@@ -1,0 +1,117 @@
+<!-- <p>admin works!</p> -->
+<body>
+<div class="split left" >
+
+    <table>
+        <h1>Add Products</h1>
+        <tr>
+
+            <td>Enter Item Id:</td>
+
+            <td><input type="text" [(ngModel)]="item.itemId"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Enter Item Name:</td>
+
+            <td><input type="text" [(ngModel)]="item.itemName"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Enter Item Price:</td>
+
+            <td><input type="number" [(ngModel)]="item.price"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Enter Coupon Code:</td>
+
+            <td><input type="text" [(ngModel)]="item.couponCode"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Enter Discount On Coupon Code:</td>
+
+            <td><input type="number" [(ngModel)]="item.  couponDiscount"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Upload Image:</td>
+
+            <td><input type="file" (change)="onFileSelected($event)" accept="image/*"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Enter Rating:</td>
+
+            <td><input type="number" [(ngModel)]="item.rating"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Enter Description:</td>
+
+            <td><input type="text" [(ngModel)]="item.description"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Enter Item in Stock:</td>
+
+            <td><input type="number" [(ngModel)]="item.totalAvailableQuantity"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Enter Discount on Item:</td>
+
+            <td><input type="number" [(ngModel)]="item.discountOnItem"></td>
+
+        </tr>
+
+        <tr>
+
+            <td>Enter Category:</td>
+
+            <td><input type="text" [(ngModel)]="item.category"></td>
+
+        </tr>
+
+        <tr>
+
+            <td><button type="button" (click)="addProductToDB()">Submit</button></td>
+
+        </tr>
+
+    </table>
+    
+</div>
+<div class="split right">
+    <ul id="itemList">
+        <h1>Delete Products</h1>
+        <li class="item" >
+            <td>Enter Item Id:</td>
+            <td><input type="text" [(ngModel)]="item.itemId"></td>
+            <button class="delete-button" (click)="deleteProductByAdmin()">Delete</button>
+        </li>
+        </ul>
+</div>
+
+</body>
+
+ 

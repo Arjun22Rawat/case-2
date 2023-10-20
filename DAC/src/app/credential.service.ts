@@ -12,6 +12,7 @@ import { CustomerDetail } from './customer-detail';
 })
 export class CredentialService {
   public userObj:User = new User();
+  item:Items=new Items();
   isLogin:any = false;
   custId:any;
   token: any;
@@ -39,6 +40,10 @@ export class CredentialService {
   private _urlVerifyEmail = "http://localhost:8080/loginService/verifyAccount/"; 
   private _urlGenerateToken = "http://localhost:8080/loginService/generatetoken";
   private _urlTopDeals="http://localhost:8082/itemService/getTopDeal";
+  private _urlCheckUsersExist="http://localhost:8080/loginService/getUsersById";
+  private _urlProductByAdmin="http://localhost:8082/itemService/getProductsByAdmin";
+
+  private _urlDeleteProductByAdmin="http://localhost:8082/itemService/deleteProduct";
 
 
   constructor(private http:HttpClient) 
@@ -65,7 +70,7 @@ export class CredentialService {
 
 
 
-  getAddItemToCart():Observable<Items[]>
+  getItemToCart():Observable<Items[]>
   {
     // this.custId = this.userObj.emailId;
     return this.http.get<Items[]>(`${this._urlAddToCart}${this.userObj.emailId}`);
@@ -78,7 +83,7 @@ export class CredentialService {
 
   addItemToCart(cart:Cart):Observable<any>
   {
-    cart.customerId = this.userObj.emailId;
+      cart.customerId = this.userObj.emailId;
       return this.http.post(`${this._urlAddItemToCart}`,cart);
   }
 
@@ -136,4 +141,18 @@ export class CredentialService {
   {
     return this.http.post<any>(this._urlGenerateToken,user);
   }
+  checkUsersExists(email: string): Observable<boolean> {
+
+    return this.http.get<boolean>(`${this._urlCheckUsersExist}/${email}`);
+
+  }
+addProductsInDb(item: Items):Observable<any>{
+  return this.http.post<any>(this._urlProductByAdmin,item)
+}
+
+deleteProductByAdmin(itemId:any):Observable<any>{
+  
+  return this.http.get<any>(this._urlDeleteProductByAdmin+"/"+itemId);
+}
+
 }

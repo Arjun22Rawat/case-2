@@ -4,16 +4,32 @@
     <div class="container">
     <div>
         <h2>Create an account!</h2>
-        <form action="">
+        <form action="" #regsitrationForm="ngForm">
             <div class="first">
-                <label>Email Id:</label><br>
+                <label for="email">Email Id:</label><br>
                 <input type="email" id="email" name="email" placeholder="Enter your email" [(ngModel)]="user.emailId"
-                    required>
+                    required email #email="ngModel">
+
+                    <span style="font-size: small; color: red;" *ngIf="email.invalid && email.touched && email.dirty">
+                
+                            <span *ngIf="email.errors?.['required']">Email is required.</span>
+                    
+                            <span *ngIf="email.errors?.['email']">Email is not valid.</span>
+                    
+                          </span>
+                    
             </div>
             <div class="second">
                 <label>Password:</label><br>
                 <input type="password" id="password" name="password" placeholder="Enter your password"
-                    [(ngModel)]="user.password" required>
+                    [(ngModel)]="user.password" required   password #password="ngModel">
+                    <span style="font-size: small; color: red;" *ngIf="password.invalid && password.touched && password.dirty">
+
+                        <span *ngIf="password.errors?.['required']">Password is required.</span>
+                
+                        <span *ngIf="password.errors?.['minlength']">Password should be at least 5 characters long.</span>
+                
+                      </span>
             </div>
 
         </form>
@@ -25,17 +41,37 @@
                 <div class="third">
                     <label>Name:</label><br>
                     <input type="text" id="name" name="name" placeholder="Enter your name" [(ngModel)]="customer.name"
-                        required>
+                        required name #name="ngModel">
+                        <span style="font-size: small; color: red;" *ngIf="name.invalid && name.touched">
+
+                            <span *ngIf="name.errors?.['required']">Name is required.</span>
+                    
+                          </span>
                 </div>
                 <div class="fourth">
                     <label>Contact:</label><br>
                     <input type="text" id="contact" name="contact" placeholder="Enter your contact"
-                        [(ngModel)]="customer.contactNumber" required>
+                        [(ngModel)]="customer.contactNumber" required contact #contact="ngModel">
+                        <span style="font-size: small; color: red;" *ngIf="contact.invalid && contact.touched">
+
+                            <span *ngIf="contact.errors?.['required']">Contact Number is not valid.</span>
+                    
+                          </span>
                 </div>
                 <div class="fifth">
                     <label>Address:</label><br>
                     <input type="text" id="address" name="address" placeholder="Enter your address"
                         [(ngModel)]="customer.address" required>
+                </div>
+                <div class="fifth">
+                    <label>Total Amount:</label><br>
+                    <input type="text" id="totalAmount" name="totalAmount" placeholder="Enter your total amount"
+                        [(ngModel)]="customer.totalAmount" required totalAmount #totalAmount="ngModel">
+                        <span style="font-size: small; color: red;" *ngIf="totalAmount.invalid && totalAmount.touched && totalAmount.dirty">
+
+                            <span *ngIf="totalAmount.errors?.['required']">Total Amount is Required.</span>
+                    
+                          </span>
                 </div>
 
 
@@ -51,7 +87,7 @@
                         <input class="verifyBlock" type="text" required [(ngModel)]="verificationCode" placeholder="Enter verification code">
                     </div>
                     <div *ngIf="buttonForSendingCode; else elseBlock">
-                        <button class="send" type="submit" (click)="sendVerificationCode()">Send Code</button>
+                        <button class="send" type="submit" (click)="checkUser()">Sign-Up</button>
                     </div>
                     <ng-template #elseBlock>
                         <div>

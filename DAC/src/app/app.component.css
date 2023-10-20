@@ -42,6 +42,16 @@ header .navbar{
     margin-left: 400px;
     /* justify-content: space-between; */
 }
+
+ .btn5:hover{
+    color: #fff;
+    background-color: rgb(235, 85, 110);
+  }
+
+header .navbar .btn #profile:hover{
+    text-decoration: underline;
+}
+
 header .navbar #a:hover{
     text-decoration: underline;
 }

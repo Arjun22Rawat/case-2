@@ -99,8 +99,13 @@ h1{
   color: #fff;
   background-color: rgb(235, 85, 110);
 }
+
+
+.btn3{
+  margin-left: 52px;
+}
 .item-img .btn2{
-  margin-left: 70px;
+  margin-left: 5px;
 }
 
 .section{

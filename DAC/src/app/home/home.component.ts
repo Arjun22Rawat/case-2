@@ -23,9 +23,9 @@ export class HomeComponent
   {
     this.service.getAllItems().subscribe(data=>{
       this.items=data;
-      this.topDeals = data
+      //this.topDeals = data
     });
-    // this.service.getTopDeals().subscribe(data => this.topDeals = data);
+     this.service.getTopDeals().subscribe(data => this.topDeals = data);
   }
   addToCart(id:string)
   {
@@ -37,12 +37,22 @@ export class HomeComponent
 
       this.cartObj.itemId = id;
       this.service.addItemToCart(this.cartObj).subscribe();
-      this.router.navigate(["/cart"]);
+    // this.router.navigate(["/cart"]);
     }
 
+    
+
+  }
+  addToWishlist(id:string){
+      
   }
   showDetails(id:any)
   {
     this.router.navigate(["/details",id]);
   }
+
+// navigateToCart(){
+//    this.router.navigate(["/cart"]);
+// }
+
 }

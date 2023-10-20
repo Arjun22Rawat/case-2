@@ -13,3 +13,18 @@
 .cart-first h2{
     font-size: 35px;
 }
+.item-img{
+    border: 3px solid rgb(229, 231, 225);
+    margin: 20px 27px;
+    padding: 20px;
+    background-color: rgb(229, 231, 225);  
+}
+.cart-first img{
+    height: 250px;
+    width: 250px;
+    display: inline;
+    margin: 5px;
+    /* margin-left: 15px; */
+  
+    
+  }

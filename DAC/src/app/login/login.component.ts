@@ -3,7 +3,7 @@ import { CredentialService } from '../credential.service';
 import { User } from '../user';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
-
+import { Validators, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +23,18 @@ export class LoginComponent
   {
     
   }
+  userForm=new FormGroup({
+    password:new FormControl('',[Validators.required]),
+    email:new FormControl('',[Validators.required,Validators.email])
+  })
+  get password(){
+    return this.userForm.get('password');
+  }
+  get email(){
+    return this.userForm.get('email');
+  }
+
+
   loginForm()
   {
     this.service.loginForm(this.user).subscribe(data=>{this.isDataValid=data;
@@ -32,8 +44,19 @@ export class LoginComponent
         this.service.generateToken(this.user).subscribe((data:any)=>{
           console.log(data);
           this.service.token = data.token;
+          if(data.roles == 'USER'){
+
+            this.router.navigate(['/home']);
+
+          }
+
+          else{
+
+            this.router.navigate(['/admin']);
+
+          }
         });
-        this.router.navigate(["/home"]);
+       // this.router.navigate(["/home"]);
       }
       else
       {

@@ -1,7 +1,10 @@
 
 <body>
 <div class="img-area"></div>
+
+
 <div class="content">
+    
     <h1>Grab On</h1><br>
     <p style="font-size: 20px;">CouponDuniya: The one-Stop Shopping Destination. </p>
 </div>
@@ -10,11 +13,14 @@
 </div>
 <h2 class="title">Featured Products</h2>
 <div class="shop-category">
-    <div class="item-img" *ngFor="let item of items" (click)="showDetails(item.itemId)">
+    <div class="item-img" *ngFor="let item of items" >
         <img src="data:image/jpg;base64,{{item.image}}"/>
         <p>{{item.itemName}}</p>
+        <p>Rs. {{item.price}}</p>
         <p>{{item.rating}}</p>
-        <button class="btn1" type="button">Buy Now</button>
+        
+        <button class="btn1" type="button" (click)="showDetails(item.itemId)">Buy Now</button>
+        <button class="btn3" type="button" (click)="addToWishlist(item.itemId)">&#9825;</button>
         <button class="btn2" type="button" (click)="addToCart(item.itemId)">Add to Cart</button>
     </div>
 </div>
@@ -24,6 +30,7 @@
     <div class="item-img" *ngFor="let deal of topDeals" (click)="showDetails(deal.itemId)">
         <img src="data:image/jpg;base64,{{deal.image}}"/>
         <p>{{deal.itemName}}</p>
+        <p>Rs. {{deal.price}}</p>
         <p>{{deal.rating}}</p>
         <button class="btn1" type="button">Buy Now</button>
         <button class="btn2" type="button" (click)="addToCart(deal.itemId)">Add to Cart</button>

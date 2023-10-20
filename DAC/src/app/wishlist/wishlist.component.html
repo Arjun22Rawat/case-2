@@ -1,13 +1,12 @@
-<!-- <p>cart works!</p> -->
+<p>wishlist works!</p>
 <body>
     <div class="cart-first">
         <h2>Items In Cart</h2>
         <div *ngFor="let item of items">
-            <img class="item-img" src="data:image/jpg;base64,{{item.image}}">
             <p>{{item.itemName}}</p>
             <p>Rs. {{item.price}}</p>
         </div>
-        <button (click)="calculateTotal()" >Cart Total</button>
+        <button (click)="calculateTotal()" >Wishlist Total</button>
         <p *ngIf="visible">Total Price is : {{cart.cartTotal}}</p>
     </div>
 </body>

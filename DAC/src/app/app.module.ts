@@ -16,6 +16,10 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { DetailsComponent } from './details/details.component';
 import { ProfileComponent } from './profile/profile.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import {  ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
+import { AdminsignupComponent } from './adminsignup/adminsignup.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,9 @@ import { ProfileComponent } from './profile/profile.component';
     CartComponent,
     DetailsComponent,
     ProfileComponent,
+    WishlistComponent,
+    AdminComponent,
+    AdminsignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,8 @@ import { ProfileComponent } from './profile/profile.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

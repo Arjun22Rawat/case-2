@@ -13,7 +13,8 @@
         <a href="#" id="a" routerLink="/about">About Us</a>
 
         <div class="btn" *ngIf="isLogin; else elseBlock">
-            <button id="profile" routerLink="/profile">Profile</button>
+            <button class="btn5" type="button" (click)="navigateToCart()">Cart</button>
+            <button class="btn5" id="profile" routerLink="/profile">Profile</button>
         </div>
 
         <ng-template #elseBlock>

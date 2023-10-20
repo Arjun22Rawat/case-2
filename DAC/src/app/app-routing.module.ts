@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { DetailsComponent } from './details/details.component';
 import { ProfileComponent } from './profile/profile.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminsignupComponent } from './adminsignup/adminsignup.component';
 
 
 const routes: Routes = [
@@ -25,6 +28,9 @@ const routes: Routes = [
   {path:"cart",component:CartComponent},
   {path:"details",component:DetailsComponent},
   {path:"details/:id",component:DetailsComponent},
+  {path:"",component:WishlistComponent},
+  {path:"admin",component:AdminComponent},
+  {path:"adminsignup",component:AdminsignupComponent}
 
 ];
 
