@@ -12,8 +12,11 @@ export class AppComponent {
   title = 'Deal and Coupons';
   
   user:User = new User();
+  userObj:any;
+  isAdmin:any = false;
   login:any;
   isLogin:any = false;
+  
   constructor(private service:CredentialService,private router:Router)
   {
     
@@ -24,6 +27,51 @@ export class AppComponent {
   }
   navigateToCart(){
     this.router.navigate(["/cart"]);
+  }
+  
+
+getUserDetails()
+
+  {
+    console.log("hghjqvbqsns");
+
+    this.service.getUserById().subscribe((data:any)=>{
+
+      this.userObj = JSON.parse(data);
+
+      this.user = this.userObj;
+
+      console.log(this.user);
+
+      if(this.user.roles=="ADMIN")
+
+      {
+
+        this.isAdmin = true;
+
+      }
+
+      else
+
+      {
+
+        this.isAdmin = false;
+
+      }
+
+      console.log(this.isAdmin+"jhjdhkh");
+
+    });
+
+   
+
+  }
+  logout()
+  {
+    this.service.userObj= {};
+    this.isAdmin = false;
+    this.isLogin=false;
+    this.router.navigate(["/home"]);
   }
  
 }

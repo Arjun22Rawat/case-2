@@ -1,21 +1,32 @@
 <!-- <p>navbar works!</p> -->
 <header>
     <!-- <a href="#" class="logo">D&C</a> -->
-    <div class="logo" >
+    <div class="logo">
         <h2>CouponDuniya</h2>
         <img src="../../assets/growth.png" alt="" srcset="">
-        
+
     </div>
     <nav class="navbar">
-        <a href="#" id="h" routerLink="/">Home</a>
-        <a href="#" id="d" routerLink="/coupons">Deals</a>
-        <a href="#" id="u" routerLink="/news">UpComing Offers</a>
-        <a href="#" id="a" routerLink="/about">About Us</a>
+        <div class="btn" *ngIf="isAdmin; else userPage">
 
-        <div class="btn" *ngIf="isLogin; else elseBlock">
-            <button class="btn5" type="button" (click)="navigateToCart()">Cart</button>
-            <button class="btn5" id="profile" routerLink="/profile">Profile</button>
+            <button id="login" (click)="logout()">Logout</button>
+
         </div>
+
+        <ng-template #userPage>
+
+            <a href="#" id="h" routerLink="/">Home</a>
+            <a href="#" id="d" routerLink="/coupons">Deals</a>
+            <a href="#" id="u" routerLink="/news">UpComing Offers</a>
+            <a href="#" id="a" routerLink="/about">About Us</a>
+
+
+
+            <div class="btn" *ngIf="isLogin; else elseBlock">
+                <button class="btn5" type="button" (click)="navigateToCart()">Cart</button>
+                <button class="btn5" id="profile" routerLink="/profile">Profile</button>
+            </div>
+        </ng-template>
 
         <ng-template #elseBlock>
 

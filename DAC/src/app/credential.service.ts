@@ -45,6 +45,8 @@ export class CredentialService {
 
   private _urlDeleteProductByAdmin="http://localhost:8082/itemService/deleteProduct";
 
+  private _urlGetUserById="http://localhost:8080/loginService/getUsersById/";
+
 
   constructor(private http:HttpClient) 
   { }
@@ -154,5 +156,16 @@ deleteProductByAdmin(itemId:any):Observable<any>{
   
   return this.http.get<any>(this._urlDeleteProductByAdmin+"/"+itemId);
 }
+getUserById():Observable<any>
+
+  {
+
+    let tokenStr = 'Bearer ' + this.token;
+
+    const headers = new HttpHeaders().set("Authorization", tokenStr);
+
+    return this.http.get<any>(this._urlGetUserById+this.userObj.emailId, {headers, responseType:'text' as 'json'});
+
+  }
 
 }

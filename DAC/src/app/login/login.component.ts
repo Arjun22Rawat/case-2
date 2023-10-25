@@ -44,6 +44,7 @@ export class LoginComponent
         this.service.generateToken(this.user).subscribe((data:any)=>{
           console.log(data);
           this.service.token = data.token;
+          this.app.getUserDetails();
           if(data.roles == 'USER'){
 
             this.router.navigate(['/home']);
@@ -56,11 +57,13 @@ export class LoginComponent
 
           }
         });
+        
        // this.router.navigate(["/home"]);
       }
       else
       {
         alert("Username or Password is in correct.");
+        
       }      
     });
     

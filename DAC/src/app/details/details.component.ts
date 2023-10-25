@@ -61,7 +61,7 @@ export class DetailsComponent
       key: response.key,
       amount: response.amount,
       currency: response.currency,
-      name: 'Arjunr',
+      name: 'Arjun',
       description: 'Payment',
       image: 'C:\Users\MicroSoft\Pictures\Screenshots.png',
       handler: (response: any) => {
@@ -70,13 +70,13 @@ export class DetailsComponent
       prefill: {
         name: 'Arjun Rawat',
         email: 'arjunrawat2002@gmail.com',
-        contact: '61726781'
+        contact: '7252046127'
       },
       notes:{
-        address: 'GHHASKN'
+        address: '78,Baldevpuri'
       },
       theme: {
-        color: '#F37254'
+        color: 'black'
       }
     };
 
@@ -94,6 +94,7 @@ export class DetailsComponent
       this.service.couponCodeTORedeem = "";
     }
     console.log(this.amount);
+    
   }
 
   addCoupon()

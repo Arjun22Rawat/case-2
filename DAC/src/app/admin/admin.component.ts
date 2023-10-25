@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Route, Router } from '@angular/router';
-
+import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 import { CredentialService } from '../credential.service';
+
 import { Items } from '../items';
 import { Cart } from '../cart';
 @Component({
@@ -71,5 +72,6 @@ export class AdminComponent {
     this.detailService.deleteProductByAdmin(this.item.itemId).subscribe();
     alert("Item Deleted successfully");
   }
+
 
 }

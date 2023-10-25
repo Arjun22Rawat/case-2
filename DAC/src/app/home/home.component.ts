@@ -37,6 +37,7 @@ export class HomeComponent
 
       this.cartObj.itemId = id;
       this.service.addItemToCart(this.cartObj).subscribe();
+      alert("Item added to the cart");
     // this.router.navigate(["/cart"]);
     }
 
