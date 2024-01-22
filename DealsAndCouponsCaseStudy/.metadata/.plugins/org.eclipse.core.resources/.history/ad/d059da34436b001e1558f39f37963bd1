@@ -1,0 +1,15 @@
+package com.dealsandcoupons.item.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+import com.dealsandcoupons.item.model.Items;
+import com.dealsandcoupons.item.model.topItems;
+
+
+
+@Repository
+public interface topItemsRepository extends MongoRepository<topItems,String> {
+
+	public topItems findByCouponCode(String couponCode);
+}

@@ -1,0 +1,5 @@
+package com.dealsandcoupons.login.jwt;
+
+public class JwtAuthFilter {
+
+}

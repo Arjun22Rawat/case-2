@@ -1,0 +1,5 @@
+package com.dealsandcoupons.gateway.filter;
+
+public class RouteValidator {
+
+}

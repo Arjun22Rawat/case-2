@@ -1,0 +1,5 @@
+package com.dealsandcoupons.login.configuration;
+
+public class CorsConfig {
+
+}
