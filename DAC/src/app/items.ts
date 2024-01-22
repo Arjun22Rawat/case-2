@@ -10,4 +10,5 @@ export class Items {
     totalAvailableQuantity?: any;
     discountOnItem?: any;
     category?: any;
+    quantity?: any;
 }

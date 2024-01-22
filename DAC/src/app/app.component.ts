@@ -16,6 +16,7 @@ export class AppComponent {
   isAdmin:any = false;
   login:any;
   isLogin:any = false;
+  token:any;
   
   constructor(private service:CredentialService,private router:Router)
   {
@@ -30,7 +31,7 @@ export class AppComponent {
   }
   
 
-getUserDetails()
+  getUserDetails(token: any)
 
   {
     console.log("hghjqvbqsns");
@@ -38,9 +39,10 @@ getUserDetails()
     this.service.getUserById().subscribe((data:any)=>{
 
       this.userObj = JSON.parse(data);
-
       this.user = this.userObj;
-
+      this.user.token = token;
+      // this.user = this.service.userObj;
+      console.log(this.userObj);
       console.log(this.user);
 
       if(this.user.roles=="ADMIN")

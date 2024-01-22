@@ -46,6 +46,16 @@ export class CredentialService {
   private _urlDeleteProductByAdmin="http://localhost:8082/itemService/deleteProduct";
 
   private _urlGetUserById="http://localhost:8080/loginService/getUsersById/";
+  private _urlCheckItemId = "http://localhost:8082/itemService/checkItemById";
+
+  private _urlDeleteItemFormCart = "http://localhost:8084/cartService/deletetItemFromCart";
+ 
+  private _urlDeleteAllItemsFromCart = "http://localhost:8084/cartService/deleteCartItems";
+
+  private _urlUpdateItemsDetails="http://localhost:8082/itemService/updateProductPrice";
+
+  private _urlUpdateCustomerDetails = "http://localhost:8081/customerService/updateCustomer";
+  private urlForAddingPaymentDetails = "http://localhost:8086/paymentService/addPaymentDetails";
 
 
   constructor(private http:HttpClient) 
@@ -154,18 +164,55 @@ addProductsInDb(item: Items):Observable<any>{
 
 deleteProductByAdmin(itemId:any):Observable<any>{
   
-  return this.http.get<any>(this._urlDeleteProductByAdmin+"/"+itemId);
+  return this.http.delete<any>(this._urlDeleteProductByAdmin+"/"+itemId);
 }
 getUserById():Observable<any>
 
   {
 
     let tokenStr = 'Bearer ' + this.token;
-
     const headers = new HttpHeaders().set("Authorization", tokenStr);
-
     return this.http.get<any>(this._urlGetUserById+this.userObj.emailId, {headers, responseType:'text' as 'json'});
 
+  }
+
+  checkItemsExists(itemId:string): Observable<boolean> {
+    return this.http.get<boolean>(`${this._urlCheckItemId}/${itemId}`);
+  }
+
+  deleteItemFromcart(itemId:string):Observable<any>
+  {
+    return this.http.get<any>(this._urlDeleteItemFormCart+"/"+this.userObj.emailId+"/"+itemId);
+  }
+
+  deleteAllItemsFromCart():Observable<any>
+  {
+    return this.http.delete<any>(this._urlDeleteAllItemsFromCart+"/"+this.userObj.emailId);
+  }
+  updateItemDetails(itemId:string,price:any,couponDiscount:any):Observable<any>{
+    const requestBody = {
+      itemId: itemId,
+      price: price,
+      couponDiscount: couponDiscount
+  };
+    return this.http.put<any>(this._urlUpdateItemsDetails+"/"+ itemId+"/"+price+"/"+couponDiscount, requestBody);
+  }
+
+  updateCustomerDetails(emailId:any,Name:any,Address:any,contactNumber:any,totalamount:any):Observable<any>
+  {
+    const requestBody={
+      Name:Name,
+      Address:Address,
+      contactNumber:contactNumber,
+      totalamount:totalamount
+
+    };
+    // console.log(cust);
+    return this.http.put<any>(this._urlUpdateCustomerDetails+"/"+emailId+"/"+Name+"/"+Address+"/"+contactNumber+"/"+totalamount,CustomerDetail);
+  }
+
+  addPaymentDetails(paymentRecord: any): Observable<any>{
+    return this.http.post<any>(this.urlForAddingPaymentDetails, paymentRecord);
   }
 
 }

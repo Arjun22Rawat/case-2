@@ -25,12 +25,15 @@ const routes: Routes = [
   {path:"about",component:AboutUsComponent},
   {path:"register",component:RegisterComponent},
   {path:"coupons",component:CouponsComponent},
+  {path:"coupons/:id",component:CouponsComponent},
   {path:"cart",component:CartComponent},
+  {path:"cart/:custId",component:CartComponent},
   {path:"details",component:DetailsComponent},
   {path:"details/:id",component:DetailsComponent},
   {path:"",component:WishlistComponent},
   {path:"admin",component:AdminComponent},
-  {path:"adminsignup",component:AdminsignupComponent}
+  {path:"adminsignup",component:AdminsignupComponent},
+  {path:"userUpdate",component:WishlistComponent}
 
 ];
 

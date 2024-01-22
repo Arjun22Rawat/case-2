@@ -5,6 +5,7 @@ import { Cart } from '../cart';
 import { CustomerDetail } from '../customer-detail';
 import { Router } from '@angular/router';
 import { Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ import { Validators, FormControl } from '@angular/forms';
 export class RegisterComponent 
 {
 
-
+  form: FormGroup;
   user: User = new User();
   customer:CustomerDetail = new CustomerDetail();
   cartObj:Cart = new Cart();
@@ -23,7 +24,7 @@ export class RegisterComponent
   password = new FormControl('', Validators.required);
   name=new FormControl('',Validators.required);
 contact=new FormControl('',Validators.required);
-totalAmount=new FormControl('',Validators.nullValidator);
+totalAmount=new FormControl('',[Validators.nullValidator,Validators.min(0)]);
 
   verificationCode: any;
   codeInput: any = false;
@@ -32,8 +33,12 @@ totalAmount=new FormControl('',Validators.nullValidator);
 
   onInit()
   {}
-  constructor(private credeService:CredentialService, private router:Router)
-  {}
+  constructor(private credeService:CredentialService, private router:Router,private fb: FormBuilder)
+  {
+    this.form = this.fb.group({
+      totalAmount: [null, [Validators.required, Validators.min(0)]],
+    });
+  }
 
   register()
   {
@@ -42,6 +47,7 @@ totalAmount=new FormControl('',Validators.nullValidator);
     this.customer.emailId =  this.user.emailId;
     this.credeService.addCustomerInCart(this.user.emailId).subscribe();
     this.credeService.addCustomerDetails(this.customer).subscribe();
+    console.log(this.customer);
     // this.credeService.register(this.user).subscribe();
     this.router.navigate(["/login"]);
   }

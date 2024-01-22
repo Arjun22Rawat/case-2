@@ -1,10 +1,91 @@
-.shop-category{
-    border: 2px solid black;
-    margin-top: 200px;
-    margin-left: 150px;
-    margin-right: 40px;
+/* Style the container */
+.container {
+    margin-top: 150px;
+    margin-bottom: 100px;
 }
-.shop-category .item-img img{
-    height: 200px;
-    width: 200px;
+
+/* Style the card */
+.card {
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+}
+
+/* Style the product image container */
+.image-container {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style the product image */
+.product-zoom-image {
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Add a hover effect for the product image */
+.product-zoom-image:hover {
+    transform: scale(1.1);
+}
+
+/* Style the product information container */
+.product-information {
+    flex: 2;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style the product name */
+.product-information h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Reduce the margin for better spacing */
+}
+
+/* Style the product description */
+.product-information p {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 15px; /* Increase the margin for better spacing */
+}
+
+/* Style the product price */
+.product-price {
+    font-size: 24px;
+    margin-bottom: 10px; /* Reduce the margin for better spacing */
+}
+
+/* Style the action buttons container */
+.action-buttons {
+    margin-top: 15px; /* Add some spacing above the buttons */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style the Buy Now button */
+button[color="warn"] {
+    flex: 1;
+    font-size: 20px;
+    background-color: #f44336; /* Update the color as needed */
+    margin-right: 10px;
+}
+
+/* Style the Add to Cart button */
+button:not([color="warn"]) {
+    flex: 1;
+    font-size: 20px;
+    background-color: #007bff; /* Update the color as needed */
+}
+
+/* Style the Go to Cart button */
+button[color="warn"][disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

@@ -17,15 +17,15 @@
         <img src="data:image/jpg;base64,{{item.image}}"/>
         <p>{{item.itemName}}</p>
         <p>Rs. {{item.price}}</p>
-        <p>{{item.rating}}</p>
+        <p>{{item.rating}}&#9733;</p>
         
         <button class="btn1" type="button" (click)="showDetails(item.itemId)">Buy Now</button>
-        <button class="btn3" type="button" (click)="addToWishlist(item.itemId)">&#9825;</button>
+        <!-- <button class="btn3" type="button" (click)="addToWishlist(item.itemId)">&#9825;</button> -->
         <button class="btn2" type="button" (click)="addToCart(item.itemId)">Add to Cart</button>
     </div>
 </div>
 
-<h2 class="title">Top Deals</h2>
+<!-- <h2 class="title">Top Deals</h2>
 <div class="shop-category">
     <div class="item-img" *ngFor="let deal of topDeals" (click)="showDetails(deal.itemId)">
         <img src="data:image/jpg;base64,{{deal.image}}"/>
@@ -35,7 +35,7 @@
         <button class="btn1" type="button">Buy Now</button>
         <button class="btn2" type="button" (click)="addToCart(deal.itemId)">Add to Cart</button>
     </div>
-</div>
+</div> -->
 
 <div class="section">
     <div class="feature-1">

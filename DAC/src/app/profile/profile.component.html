@@ -12,8 +12,6 @@
     </div>
 </body> -->
 
-
-
 <body>
     <div class="container">
         <h2>Your Profile</h2>
@@ -22,10 +20,10 @@
             <p><strong>Name:</strong> <span>{{details.name}}</span></p>
             <p><strong>Contact Number:</strong> <span>{{details.contactNumber}}</span></p>
             <p><strong>Address:</strong> <span>{{details.address}}</span></p>
-            <p><strong>Preferences:</strong> <span>{{details.preferences}}</span></p>
             <p><strong>Total Amount:</strong> <span>{{details.totalAmount}}</span></p>
-            <p><strong>Coupons:</strong> <span>{{details.coupons}}</span></p>
+            <a href="#" id="h" routerLink="/userUpdate">Update Details</a>
         </div>
+        
         <button class="logout-button" (click)="logout()">Logout</button>
     </div>
 </body>

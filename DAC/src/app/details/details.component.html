@@ -1,13 +1,53 @@
+<div class="container mt-5">
+ 
+    <div class="row">
+        <div class="col-5">
+   
+            <div class="card image-container p-5">
+                <img src="data:image/jpg;base64,{{item.image}}" class="product-zoom-image">
+        <div class="col-6">
+            <div class="product-information">
+                <div class="mt-3">
+                    <h2>{{item.itemName}}</h2>
+                </div>
+                <p class="mt-3">
+                    Description: <br>
+  {{item.description}}
+                </p>
+    <p class="mt-3">
+                    <b>Rs. {{item.price}}</b>&nbsp;&nbsp;<b style="text-decoration: line-through;">{{item.productActualPrice}}</b>
+    </p>            
+               
+                <div class="mt-5 text-center">
+                    <button mat-raised-button color="warn" style="width: 200px;" (click)="transactionDisplay()" >Buy Now</button>
+                    &nbsp;
+                    <button mat-raised-button style="width: 200px;" (click)="redeemCoupon(item.itemId)" >Add Coupon</button>
+                    <!-- <button mat-raised-button style="width: 200px;" *ngIf="(userService.roleMatch(['User']) || !isLoggedin()) && check" (click)="goTocart()">Go to Cart</button> -->
+   
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+
 <!-- <p>details works!</p> -->
-<body>
+<!-- <body>
     <div class="shop-category">
         <div class="item-img">
             <img src="data:image/jpg;base64,{{item.image}}"/>
             <p>{{item.itemName}}</p>
-            <p>{{item.rating}}</p>
+            <p>{{item.price}}</p>
+            <p>{{item.rating}}
+                &#9733;
+                </p>
             <button class="btn1" type="button" (click)="transactionDisplay()" >Buy Now</button>
             <button class="btn1" type="button" (click)="addCoupon()" >Add Coupon</button>
-            <!-- <button class="btn2" type="button" (click)="addToCart(item.itemId)">Add to Cart</button> -->
-        </div>
+            <button class="btn2" type="button" (click)="addToCart(item.itemId)">Add to Cart</button> -->
+        <!-- </div>
     </div>
-</body>
+</body> -->

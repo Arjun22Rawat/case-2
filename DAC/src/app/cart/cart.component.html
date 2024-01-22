@@ -1,13 +1,37 @@
-<!-- <p>cart works!</p> -->
+
 <body>
-    <div class="cart-first">
-        <h2>Items In Cart</h2>
-        <div *ngFor="let item of items">
-            <img class="item-img" src="data:image/jpg;base64,{{item.image}}">
-            <p>{{item.itemName}}</p>
-            <p>Rs. {{item.price}}</p>
+    <div class="cart-container">
+        <div class="cart-header">
+            <h2 class="cart-title">Items In Cart</h2>
+            <p class="cart-total" *ngIf="visible">Total Price is : Rs. {{cart.cartTotal}}</p>
         </div>
-        <button (click)="calculateTotal()" >Cart Total</button>
-        <p *ngIf="visible">Total Price is : {{cart.cartTotal}}</p>
+        <div *ngFor="let item of items" class="cart-item">
+            <img class="item-img" src="data:image/jpg;base64,{{item.image}}">
+            <div class="item-info">
+                <p>Product Name :{{item.itemName}}</p>
+                
+                <p>Quantity :{{item.quantity}}</p>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <button class="btn btn-link px-2"
+                    (click)="decrementQuantity(item)">
+                      <i class="fas fa-minus"></i>
+                    </button>
+   
+                    <input id="form1" min="0" name="quantity" value={{item.quantity}}  type="number"
+                      class="form-control form-control-sm" />
+   
+                    <button class="btn btn-link px-2"
+                    (click)="incrementQuantity(item)">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                <p class="item-price">Rs. {{item.price}}</p>
+                <button type="button" (click)="removeItem(item.itemId)" class="remove-button">Remove</button>
+            </div>
+        </div>
+        <div class="cart-actions">
+            <button (click)="calculateTotal()">Cart Total:{{cart.cartTotal}}</button>
+            <button (click)="BuyItemsFromCart()" class="proceed-to-pay">Proceed to Pay</button>
+        </div>
     </div>
 </body>

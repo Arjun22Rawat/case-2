@@ -1,5 +1,5 @@
 <body>
-    <img src="../../assets/MicrosoftTeams.png" alt="Image Description">
+    <!-- <img src="../../assets/MicrosoftTeams.png" alt="Image Description"> -->
 
     <div class="container">
     <div>
@@ -41,7 +41,7 @@
                 <div class="third">
                     <label>Name:</label><br>
                     <input type="text" id="name" name="name" placeholder="Enter your name" [(ngModel)]="customer.name"
-                        required name #name="ngModel">
+                        required name #name="ngModel" [ngModelOptions]="{standalone: true}">
                         <span style="font-size: small; color: red;" *ngIf="name.invalid && name.touched">
 
                             <span *ngIf="name.errors?.['required']">Name is required.</span>
@@ -70,8 +70,12 @@
                         <span style="font-size: small; color: red;" *ngIf="totalAmount.invalid && totalAmount.touched && totalAmount.dirty">
 
                             <span *ngIf="totalAmount.errors?.['required']">Total Amount is Required.</span>
+                            
                     
                           </span>
+                          <div style="font-size: small; color: red;" *ngIf="form.get('totalAmount')?.hasError('min')">
+                            Total Amount cannot be negative.
+                          </div>
                 </div>
 
 

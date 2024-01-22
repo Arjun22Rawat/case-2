@@ -12,12 +12,32 @@ import { Cart } from '../cart';
 })
 export class AdminComponent {
   item: Items = new Items();
-  
+  itemId: any;
+  price: any;
+  couponDiscount: any;
+  couponError:any;
+  isUpdateDisabled : boolean=true;
  
 
-  constructor(private detailService: CredentialService) {}
+  constructor (private detailService: CredentialService, private router:Router) {}
 
- 
+  ngOnInit()
+  {
+    // if(localStorage.getItem("token")!=null){
+    //   this.router.navigate(["/login"])
+    // }
+  }
+
+
+  checkItemId(){
+    this.detailService.checkItemsExists(this.item.itemId).subscribe((itemExists: boolean) => {
+     if (itemExists) {
+       alert('Item is already exists!');
+     } else {
+       this.addProductToDB();
+     }
+   });
+ }
 
   addProductToDB(){
 
@@ -68,10 +88,49 @@ export class AdminComponent {
 
   }
   
+  checkItemIdforDelete(){
+    this.detailService.checkItemsExists(this.item.itemId).subscribe((itemExists: boolean) => {
+     if (itemExists) {
+       this.deleteProductByAdmin();
+     } else {
+       alert('Item does not exists!');
+     }
+   });
+ }
+
   deleteProductByAdmin(){
     this.detailService.deleteProductByAdmin(this.item.itemId).subscribe();
     alert("Item Deleted successfully");
   }
+  validateCouponDiscount() {
+    if (this.couponDiscount === null || isNaN(this.couponDiscount)) {
+      this.couponError = 'Please enter a valid number for Coupon Discount.';
+    } else if (this.couponDiscount < 0 || this.couponDiscount > 100) {
+      this.couponError = 'Coupon Discount should be between 0 and 100.';
+    } else {
+      this.couponError = ''; // Reset error message
+      this.isUpdateDisabled = false; // Enable the button
+      console.log('Valid Coupon Discount:', this.couponDiscount);
+      // Perform other operations like updating items, etc.
+    }
+  }
 
+  checkId(){
+    this.detailService.checkItemsExists(this.itemId).subscribe((itemExists: boolean) => {
+     if (itemExists) {
+      this.updateItems();
+       
+     } else {
+      alert('Item does not exists!');
+     }
+   });
+ }
+
+  updateItems(){
+    console.log(this.price);
+    this.detailService.updateItemDetails(this.itemId,this.price,this.couponDiscount).subscribe();
+    this.item=new Items();
+    alert("Item Detail Updated successfully");
+  }
 
 }

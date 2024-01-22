@@ -18,6 +18,7 @@ export class ProfileComponent
   {
     this.service.getCustomerDetails().subscribe((data: any)=> {
       this.details=JSON.parse(data);
+      console.log(this.details);
     });
   }
 

@@ -44,7 +44,8 @@ export class LoginComponent
         this.service.generateToken(this.user).subscribe((data:any)=>{
           console.log(data);
           this.service.token = data.token;
-          this.app.getUserDetails();
+          localStorage.setItem("token",this.service.token)
+          this.app.getUserDetails(data.token);
           if(data.roles == 'USER'){
 
             this.router.navigate(['/home']);

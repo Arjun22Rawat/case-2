@@ -5,4 +5,5 @@ export class Cart
     quantity?:any;
 	itemDetails?:any;
 	cartTotal?:any;
+	itemName?:any;
 }

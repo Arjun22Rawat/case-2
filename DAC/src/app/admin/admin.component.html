@@ -94,7 +94,7 @@
 
         <tr>
 
-            <td><button type="button" (click)="addProductToDB()">Submit</button></td>
+            <td><button type="button" (click)="checkItemId()">Submit</button></td>
 
         </tr>
 
@@ -107,9 +107,34 @@
         <li class="item" >
             <td>Enter Item Id:</td>
             <td><input type="text" [(ngModel)]="item.itemId"></td>
-            <button class="delete-button" (click)="deleteProductByAdmin()">Delete</button>
+            <button class="delete-button" (click)="checkItemIdforDelete()">Delete</button>
+        </li>
+        <br>
+        <br>
+        <h1>Update Items</h1>
+        <li>
+            <tr>
+                <td>Enter ItemId:</td>
+                <td><input type="text" id="itemId" [(ngModel)]="itemId"></td>
+            </tr>
+            <tr>
+                <td>New Item Price:</td>
+                <td><input type="text" id="itemPrice" [(ngModel)]="price"></td>
+            </tr>
+            <tr>
+                <td>New Coupon Discount:</td>
+                <td><input type="number" id="couponDiscount" [(ngModel)]="couponDiscount" (ngModelChange)="validateCouponDiscount()" name="couponDiscount"></td>
+                <br>
+                <br>
+                <div *ngIf="couponError" style="color: red;">{{ couponError }}</div>
+            </tr>
+            <tr>
+                <td><button type="button" [disabled]="isUpdateDisabled" (click)="checkId()">Update Items</button></td>
+                <td><button type="reset" id="reset" name="reset" Value="Cancel">Cancel</button></td>
+            </tr>
         </li>
         </ul>
+
 </div>
 
 </body>

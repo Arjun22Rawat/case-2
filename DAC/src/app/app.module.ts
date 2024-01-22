@@ -21,6 +21,7 @@ import {  ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { AdminsignupComponent } from './adminsignup/adminsignup.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,7 @@ import { AdminsignupComponent } from './adminsignup/adminsignup.component';
     ProfileComponent,
     WishlistComponent,
     AdminComponent,
-    AdminsignupComponent,
+    AdminsignupComponent
   ],
   imports: [
     BrowserModule,

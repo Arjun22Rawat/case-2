@@ -21,11 +21,14 @@ export class HomeComponent
 
   ngOnInit()
   {
+    // if(localStorage.getItem("token")==null){
+    //   this.router.navigate(["/login"])
+    // }
     this.service.getAllItems().subscribe(data=>{
       this.items=data;
       //this.topDeals = data
     });
-     this.service.getTopDeals().subscribe(data => this.topDeals = data);
+     
   }
   addToCart(id:string)
   {
@@ -36,6 +39,7 @@ export class HomeComponent
     else{
 
       this.cartObj.itemId = id;
+      console.log(this.cartObj.quantity);
       this.service.addItemToCart(this.cartObj).subscribe();
       alert("Item added to the cart");
     // this.router.navigate(["/cart"]);

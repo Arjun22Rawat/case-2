@@ -1,6 +1,7 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
 import { CredentialService } from '../credential.service';
+import { PaymentRecord } from '../payment-record';
 
 declare var Razorpay: any;
 @Component({
@@ -15,6 +16,7 @@ export class DetailsComponent
   amount:any;
   productAmount:any;
   dataObj: any;
+  paymentRecord: PaymentRecord = new PaymentRecord();
 
   constructor(private router:Router, private route:ActivatedRoute, private service:CredentialService)
   {
@@ -33,21 +35,27 @@ export class DetailsComponent
 
 
   transactionDisplay(){
+    let prodAmount = this.productAmount;
     if(this.service.isCouponCodeApplied){
-      this.productAmount -= this.productAmount * (this.service.discountOnCouponCode / 100);
+      prodAmount = 0;
+      prodAmount = this.productAmount - this.productAmount * (this.service.discountOnCouponCode / 100);
     }
-    this.service.createTransaction(this.productAmount).subscribe(
+    this.service.createTransaction(prodAmount).subscribe(
 
       (response) => {
         console.log(response);
-        
-        if(this.amount >= this.productAmount){
 
-          this.openTransactionModel(response);
-        }
+       
+          if(this.service.userObj.emailId== null)
+          {
+            this.router.navigate(["/login"]);
+          }
+         
         else{
-          alert("Not sufficient balance");
+       
+        this.openTransactionModel(response);
         }
+        
       },
       (error) => {
         console.log(error);
@@ -61,11 +69,13 @@ export class DetailsComponent
       key: response.key,
       amount: response.amount,
       currency: response.currency,
+      itemName: response.itemName,
       name: 'Arjun',
       description: 'Payment',
       image: 'C:\Users\MicroSoft\Pictures\Screenshots.png',
       handler: (response: any) => {
         this.processResponse(response);
+        this.router.navigate(["/home"]);
       },
       prefill: {
         name: 'Arjun Rawat',
@@ -93,14 +103,21 @@ export class DetailsComponent
       this.service.isCouponCodeApplied = false;
       this.service.couponCodeTORedeem = "";
     }
-    console.log(this.amount);
     
+    console.log(this.amount);
+    console.log(resp);
+    this.paymentRecord.email = this.service.userObj.emailId;
+    this.paymentRecord.amount = this.amount;
+    this.paymentRecord.orderId = resp.razorpay_payment_id;
+    this.paymentRecord.productName = this.item.itemName;
+
+    this.service.addPaymentDetails(this.paymentRecord).subscribe();
   }
 
-  addCoupon()
+  redeemCoupon(itemId:any)
   {
     this.service.addCoupon(this.item.couponCode).subscribe();
-    this.router.navigate(["/coupons"]);
+    this.router.navigate(["/coupons",itemId]);
   }
   
 }

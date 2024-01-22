@@ -1,12 +1,174 @@
-<p>wishlist works!</p>
-<body>
-    <div class="cart-first">
-        <h2>Items In Cart</h2>
-        <div *ngFor="let item of items">
-            <p>{{item.itemName}}</p>
-            <p>Rs. {{item.price}}</p>
-        </div>
-        <button (click)="calculateTotal()" >Wishlist Total</button>
-        <p *ngIf="visible">Total Price is : {{cart.cartTotal}}</p>
+<!-- <p>wishlist works!</p>
+<div class="container">
+<form action="">
+    <div class="third">
+        <label>Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" [(ngModel)]="Name"
+            required name #name="ngModel" [ngModelOptions]="{standalone: true}">
+            <span style="font-size: small; color: red;" *ngIf="name.invalid && name.touched">
+
+                <span *ngIf="name.errors?.['required']">Name is required.</span>
+        
+              </span>
     </div>
-</body>
+    <div class="fourth">
+        <label>Contact:</label><br>
+        <input type="text" id="contact" name="contact" placeholder="Enter your contact"
+            [(ngModel)]="contactNumber" required contact #contact="ngModel">
+            <span style="font-size: small; color: red;" *ngIf="contact.invalid && contact.touched">
+
+                <span *ngIf="contact.errors?.['required']">Contact Number is not valid.</span>
+        
+              </span>
+    </div>
+    <div class="fifth">
+        <label>Address:</label><br>
+        <input type="text" id="address" name="address" placeholder="Enter your address"
+            [(ngModel)]="Address" required>
+    </div>
+    <div class="fifth">
+        <label>Total Amount:</label><br>
+        <input type="text" id="totalAmount" name="totalAmount" placeholder="Enter your total amount"
+            [(ngModel)]="totalamount" required totalAmount #totalAmount="ngModel">
+            <span style="font-size: small; color: red;" *ngIf="totalAmount.invalid && totalAmount.touched && totalAmount.dirty">
+
+                <span *ngIf="totalAmount.errors?.['required']">Total Amount is Required.</span>
+        
+              </span>
+    </div>
+
+
+    <button type="submit" (click)="register()">Update Details</button>
+   
+   
+</form>
+<div> -->
+    <!-- <div class="container">
+        <form (ngSubmit)="register()">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              [(ngModel)]="Name"
+              required
+              name
+              #name="ngModel"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <div class="error-message" *ngIf="name.invalid && name.touched">
+              <span *ngIf="name.errors?.['required']">Name is required.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact:</label>
+            <input
+              type="text"
+              id="contact"
+              name="contact"
+              placeholder="Enter your contact"
+              [(ngModel)]="contactNumber"
+              required
+              name
+              #contact="ngModel"
+            />
+            <div class="error-message" *ngIf="contact.invalid && contact.touched">
+              <span *ngIf="contact.errors?.['required']">Contact Number is required.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              placeholder="Enter your address"
+              [(ngModel)]="Address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="totalAmount">Total Amount:</label>
+            <input
+              type="text"
+              id="totalAmount"
+              name="totalAmount"
+              placeholder="Enter your total amount"
+              [(ngModel)]="totalamount"
+              required
+              name
+              #totalAmount="ngModel"
+            />
+            <div class="error-message" *ngIf="totalAmount.invalid && totalAmount.touched && totalAmount.dirty">
+              <span *ngIf="totalAmount.errors?.['required']">Total Amount is required.</span>
+            </div>
+          </div>
+          <button type="submit">Update Details</button>
+        </form>
+      </div> -->
+      <div class="container">
+        <form (ngSubmit)="register()">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              [(ngModel)]="Name"
+              required
+              name
+              #name="ngModel"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            <div class="error-message" *ngIf="name.invalid && name.touched">
+              <span *ngIf="name.errors?.['required']">Name is required.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact:</label>
+            <input
+              type="text"
+              id="contact"
+              name="contact"
+              placeholder="Enter your contact"
+              [(ngModel)]="contactNumber"
+              required
+              
+            />
+            <!-- <div class="error-message" *ngIf="contact.invalid && contact.touched">
+              <span *ngIf="contact.errors?.['required']">Contact Number is required.</span>
+            </div> -->
+          </div>
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              placeholder="Enter your address"
+              [(ngModel)]="Address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="totalAmount">Total Amount:</label>
+            <input
+              type="text"
+              id="totalAmount"
+              name="totalAmount"
+              placeholder="Enter your total amount"
+              [(ngModel)]="totalamount"
+              required
+             
+            />
+            <!-- <div class="error-message" *ngIf="totalAmount.invalid && totalAmount.touched && totalAmount.dirty">
+              <span *ngIf="totalAmount.errors?.['required']">Total Amount is required.</span>
+            </div> -->
+          </div>
+          <button type="submit">Update Details</button>
+        </form>
+      </div>
+      
